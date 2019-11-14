@@ -3,7 +3,7 @@ name: Staging deployment
 on:
   deployment:
   pull_request:
-  #  types: [ closed ]
+    types: [ closed ]
 
 jobs:
   build:
