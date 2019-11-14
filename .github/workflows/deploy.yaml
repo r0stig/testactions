@@ -28,7 +28,7 @@ jobs:
       - name: Runrun2
         run: echo "hejsan igen!! $GITHUB_SHA"
       - name: Set status
-        if: (always() && github.event_name == 'pull_request')
+        if: (always() && github.event_name == 'deployment')
         run: |
             wget -O-- \
             --post-data "{\"state\":\"$(echo ${{ job.status }} | tr '[:upper:]' '[:lower:]')\", \"log_url\":\"https://github.com/${{ github.repository }}/actions\"}" \
