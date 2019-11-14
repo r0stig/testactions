@@ -3,13 +3,13 @@ name: Staging deployment
 on:
   deployment:
   pull_request:
-    types: [closed]
+    #types: [closed]
 
 jobs:
   build:
     name: Deploy Staging
     runs-on: ubuntu-latest
-    if: (github.event.pull_request.merged && github.event.pull_request.base.ref == 'master') || (github.event.deployment.environment == 'staging' && github.event_name == 'deployment')
+    #if: (github.event.pull_request.merged && github.event.pull_request.base.ref == 'master') || (github.event.deployment.environment == 'staging' && github.event_name == 'deployment')
     env:
       TEST: hej
     steps:
@@ -28,7 +28,7 @@ jobs:
       - name: Runrun2
         run: echo "hejsan igen!! $GITHUB_SHA"
       - name: Set status
-        if: always()
+        if: (always() && github.event_name == 'deployment')
         run: |
             wget -O-- \
             --post-data "{\"state\":\"$(echo ${{ job.status }} | tr '[:upper:]' '[:lower:]')\", \"log_url\":\"https://github.com/${{ github.repository }}/actions\"}" \
