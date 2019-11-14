@@ -25,6 +25,8 @@ jobs:
       - name: Runrunrunr
         run: |
           echo "hejsan $TEST"
+      - name: Runrun2
+        run: echo "hejsan igen!!"
       - name: Set status
         if: always()
         run: |
