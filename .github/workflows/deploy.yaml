@@ -14,7 +14,7 @@ jobs:
       TEST: hej
     steps:
       - name: Check labels
-        if: github.event_name == "pull_request"
+        if: github.event_name == 'pull_request'
         run: |
           curl \
             -H "Authorization: token $GITHUB_TOKEN" \
