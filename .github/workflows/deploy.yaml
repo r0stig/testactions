@@ -9,7 +9,7 @@ jobs:
   build:
     name: Deploy Staging
     runs-on: ubuntu-latest
-    # if: (github.event.pull_request.merged && github.event.pull_request.base.ref == 'master') || (github.event.deployment.environment == 'staging' && github.event_name == 'deployment')
+    if: (github.event.pull_request.merged && github.event.pull_request.base.ref == 'master') || (github.event.deployment.environment == 'staging' && github.event_name == 'deployment')
     env:
       TEST: hej
     steps:
